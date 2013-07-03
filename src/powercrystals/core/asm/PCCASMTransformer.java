@@ -1,7 +1,7 @@
 package powercrystals.core.asm;
 
-import cpw.mods.fml.relauncher.FMLRelauncher;
-import cpw.mods.fml.relauncher.IClassTransformer;
+import cpw.mods.fml.relauncher.FMLLaunchHandler;
+import net.minecraft.launchwrapper.IClassTransformer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +22,7 @@ public class PCCASMTransformer implements IClassTransformer
 {
 	private String desc;
 	private ArrayList<String> workingPath = new ArrayList<String>();
-	private boolean isClient = FMLRelauncher.side().equals("CLIENT");
+	private boolean isClient = FMLLaunchHandler.side().equals("CLIENT");
 
 	public PCCASMTransformer()
 	{
@@ -131,7 +131,7 @@ public class PCCASMTransformer implements IClassTransformer
 		ClassNode cn = new ClassNode(Opcodes.ASM4);
 		cr.accept(cn, ClassReader.EXPAND_FRAMES);
 
-		for(MethodNode m : cn.methods)
+		for(MethodNode m : (List<MethodNode>)cn.methods)
 		{
 			if("<init>".equals(m.name) && "(Lnet/minecraft/server/MinecraftServer;Lnet/minecraft/world/storage/ISaveHandler;Ljava/lang/String;Lnet/minecraft/world/WorldProvider;Lnet/minecraft/world/WorldSettings;Lnet/minecraft/profiler/Profiler;Lnet/minecraft/logging/ILogAgent;)V".equals(m.desc))
 			{
@@ -186,7 +186,7 @@ public class PCCASMTransformer implements IClassTransformer
 			return false;
 		}
 		boolean interfaces = false;
-		for (AnnotationNode node : cn.visibleAnnotations)
+		for (AnnotationNode node : (List<AnnotationNode>)cn.visibleAnnotations)
 		{
 			if (node.desc.equals(desc))
 			{

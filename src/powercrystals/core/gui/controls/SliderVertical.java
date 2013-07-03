@@ -1,6 +1,7 @@
 package powercrystals.core.gui.controls;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.client.resources.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
@@ -10,6 +11,10 @@ import powercrystals.core.gui.GuiRender;
 
 public abstract class SliderVertical extends Control
 {
+	private static final ResourceLocation BUTTON_HOVER = new ResourceLocation("powercrystals", "core/textures/button_hover.png");
+	private static final ResourceLocation BUTTON_ENABLED = new ResourceLocation("powercrystals", "core/textures/button_enabled.png");
+	private static final ResourceLocation BUTTON_DISABLED = new ResourceLocation("powercrystals", "core/textures/button_disabled.png");
+	
 	private int _value;
 	private int _valueMax;
 	
@@ -50,15 +55,15 @@ public abstract class SliderVertical extends Control
 		
 		if(enabled && isPointInBounds(mouseX, mouseY))
 		{
-			containerScreen.mc.renderEngine.bindTexture("/powercrystals/core/textures/button_hover.png");
+			containerScreen.mc.renderEngine.func_110577_a(BUTTON_HOVER);
 		}
 		else if(enabled)
 		{
-			containerScreen.mc.renderEngine.bindTexture("/powercrystals/core/textures/button_enabled.png");
+			containerScreen.mc.renderEngine.func_110577_a(BUTTON_ENABLED);
 		}
 		else
 		{
-			containerScreen.mc.renderEngine.bindTexture("/powercrystals/core/textures/button_disabled.png");
+			containerScreen.mc.renderEngine.func_110577_a(BUTTON_DISABLED);
 		}
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 		GuiRender.drawTexturedModalRect(sliderX,                   sliderY,                    0,                     0,                      sliderWidth / 2, sliderHeight / 2);

@@ -10,14 +10,15 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.inventory.Container;
+import net.minecraft.client.resources.ResourceLocation;
 
 @SideOnly(Side.CLIENT)
 public abstract class GuiScreenBase extends GuiContainer
 {
 	protected List<Control> _controls = new LinkedList<Control>();
-	protected String _backgroundTexture;
+	protected ResourceLocation _backgroundTexture;
 
-	public GuiScreenBase(Container container, String backgroundTexture)
+	public GuiScreenBase(Container container, ResourceLocation backgroundTexture)
 	{
 		super(container);
 		_backgroundTexture = backgroundTexture;
@@ -34,7 +35,7 @@ public abstract class GuiScreenBase extends GuiContainer
 		mouseX -= guiLeft;
 		mouseY -= guiTop;
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		mc.renderEngine.bindTexture(_backgroundTexture);
+		mc.renderEngine.func_110577_a(_backgroundTexture);
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 		
 		GL11.glPushMatrix();
