@@ -59,6 +59,10 @@
 		<copy todir="${mcpsrc.dir}/powercrystals" overwrite="true">
 			<fileset dir="${src.dir}/powercrystals"/>
 		</copy>
+		<mkdir dir="${mcpsrc.dir}/assets" />
+		<copy todir="${mcpsrc.dir}/assets" overwrite="true">
+			<fileset dir="${src.dir}/assets"/>
+		</copy>
 		<copy todir="${mcpsrc.dir}" file="pcc_at.cfg" overwrite="true"/>
 
 		<exec dir="${verclass.dir}" executable="sh" osfamily="unix" outputproperty="grep.out">
@@ -119,8 +123,8 @@
 		</copy>
 		<copy todir="${classes.dir}" file="${mcpsrc.dir}/pcc_at.cfg" overwrite="true"/>
 		
-		<copy todir="${classes.dir}/powercrystals/core/textures">
-			<fileset dir="${mcpsrc.dir}/powercrystals/core/textures" />
+		<copy todir="${classes.dir}/assets">
+			<fileset dir="${mcpsrc.dir}/assets" />
 		</copy>
 	</target>
 
