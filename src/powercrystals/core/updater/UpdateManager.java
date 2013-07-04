@@ -40,8 +40,8 @@ public class UpdateManager implements IScheduledTickHandler
 			if(_updateThread.newVersionAvailable())
 			{
 				EntityPlayer player = (EntityPlayer) tickData[0];
-				player.func_110122_a(ChatMessageComponent.func_111066_d("[" + _mod.getModName() + "] A new version is available: " + _updateThread.newVersion().modVersion().toString()));
-				player.func_110122_a(ChatMessageComponent.func_111066_d(_updateThread.newVersion().description()));
+				player.sendChatToPlayer(ChatMessageComponent.func_111066_d("[" + _mod.getModName() + "] A new version is available: " + _updateThread.newVersion().modVersion().toString()));
+				player.sendChatToPlayer(ChatMessageComponent.func_111066_d(_updateThread.newVersion().description()));
 			}
 		}
 	}
