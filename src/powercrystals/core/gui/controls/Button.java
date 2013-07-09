@@ -3,9 +3,9 @@ package powercrystals.core.gui.controls;
 import org.lwjgl.opengl.GL11;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.util.ResourceLocation;
 import powercrystals.core.gui.Control;
 import powercrystals.core.gui.GuiRender;
-import net.minecraft.client.resources.ResourceLocation;
 
 public abstract class Button extends Control
 {

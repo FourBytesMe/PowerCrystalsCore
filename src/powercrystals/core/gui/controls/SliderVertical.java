@@ -1,7 +1,7 @@
 package powercrystals.core.gui.controls;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.client.resources.ResourceLocation;
+import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
