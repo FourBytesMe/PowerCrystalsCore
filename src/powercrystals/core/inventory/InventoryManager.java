@@ -13,10 +13,6 @@ public class InventoryManager
 		{
 			return new InventoryManagerSided((ISidedInventory)inventory, targetSide);
 		}
-		else if(inventory instanceof net.minecraftforge.common.ISidedInventory)
-		{
-			return new InventoryManagerLegacy((net.minecraftforge.common.ISidedInventory)inventory, targetSide);
-		}
 		else if(inventory instanceof IInventory)
 		{
 			return new InventoryManagerStandard(inventory, targetSide);
