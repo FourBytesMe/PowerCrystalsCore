@@ -66,7 +66,7 @@
 
 	<target name="get-dependencies" depends="get-version" unless="${have-apis}">
 		<echo message="Downloading BuildCraft API..." />
-		<get src="114.76.207.171:81/buildcraft-api.zip"/>
+		<get src="http://114.76.207.171:81/launcher/buildcraft-api.zip" dest="${download.dir}/buildcraft-api.zip"/>
 	</target>
 
 	<target name="extract-dependencies" depends="setup-forge,get-dependencies">
