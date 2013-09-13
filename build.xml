@@ -66,7 +66,7 @@
 
 	<target name="get-dependencies" depends="get-version" unless="${have-apis}">
 		<echo message="Downloading BuildCraft API..." />
-		<get src="http://www.powercrystalsmods.com/build/buildcraft-api.zip" dest="${download.dir}/buildcraft-api.zip"/>
+		<get src="https://dl.dropboxusercontent.com/u/71722326/pcc/buildcraft-api.zip" dest="${download.dir}/buildcraft-api.zip"/>
 	</target>
 
 	<target name="extract-dependencies" depends="setup-forge,get-dependencies">
